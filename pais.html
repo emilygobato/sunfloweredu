@@ -7,59 +7,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --azul-suave: #8EB8CB;
-            --azul-escuro: #2C3E50;
-            --laranja-acolhimento: #FFB703;
-            --fundo-site: #FDF9F1;
-        }
-
+        :root { --azul-suave: #8EB8CB; --azul-escuro: #2C3E50; --laranja-acolhimento: #FFB703; --fundo-site: #FDF9F1; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--fundo-site); color: var(--azul-escuro); padding-top: 80px; }
-
-        header {
-            position: fixed; top: 0; width: 100%; background: var(--laranja-acolhimento);
-            color: var(--azul-escuro); padding: 15px 50px; display: flex; align-items: center; gap: 20px;
-            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
+        header { position: fixed; top: 0; width: 100%; background: var(--laranja-acolhimento); color: var(--azul-escuro); padding: 15px 50px; display: flex; align-items: center; gap: 20px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .voltar-btn { color: var(--azul-escuro); text-decoration: none; font-size: 1.5em; font-weight: bold; }
         header h2 { font-weight: 700; }
-
-        .hero-familia {
-            text-align: center; padding: 60px 20px;
-            background: white; border-bottom: 4px solid var(--laranja-acolhimento);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            margin-bottom: 40px;
-        }
-
+        .hero-familia { text-align: center; padding: 60px 20px; background: white; border-bottom: 4px solid var(--laranja-acolhimento); box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 40px; }
         .hero-familia h1 { font-size: 2.5em; margin-bottom: 15px; color: var(--azul-escuro); }
         .hero-familia p { font-size: 1.1em; color: #666; max-width: 700px; margin: 0 auto; }
-        
         .container { max-width: 1000px; margin: 0 auto 60px; padding: 0 20px; }
-
-        .grid-recursos {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
-        }
-
-        .card-recurso {
-            background: white; border-radius: 15px; padding: 30px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s;
-            border-top: 5px solid var(--laranja-acolhimento);
-            text-align: center;
-        }
-
+        .grid-recursos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card-recurso { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s; border-top: 5px solid var(--laranja-acolhimento); text-align: center; display: flex; flex-direction: column; }
         .card-recurso:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
-        
         .icone { font-size: 3em; margin-bottom: 15px; }
         .card-recurso h3 { font-size: 1.3em; margin-bottom: 15px; }
-        .card-recurso p { font-size: 0.95em; color: #555; margin-bottom: 20px; line-height: 1.5; }
-
-        .btn-acao {
-            display: inline-block; background: var(--azul-escuro); color: white;
-            padding: 10px 20px; border-radius: 8px; text-decoration: none;
-            font-weight: 600; transition: background 0.2s; width: 100%;
-        }
+        .card-recurso p { font-size: 0.95em; color: #555; margin-bottom: 20px; line-height: 1.5; flex-grow: 1;}
+        .btn-acao { display: inline-block; background: var(--azul-escuro); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; width: 100%; margin-top: auto; }
         .btn-acao:hover { background: #1a252f; }
     </style>
 </head>
@@ -81,29 +45,29 @@
             <div class="card-recurso">
                 <div class="icone">📖</div>
                 <h3>Diário do Aluno</h3>
-                <p>Veja os registros feitos pelo professor hoje. Saiba como foi o dia, quais atividades foram feitas e quais gatilhos evitar.</p>
-                <a href="#" class="btn-acao">Acessar Diário</a>
+                <p>Veja os registros feitos pelo professor hoje. Saiba como foi o dia e quais atividades foram feitas.</p>
+                <a href="diario.html" class="btn-acao">Acessar Diário</a>
             </div>
 
             <div class="card-recurso">
                 <div class="icone">🏠</div>
                 <h3>Rotina em Casa</h3>
-                <p>Materiais visuais e dicas para criar uma rotina previsível em casa, ajudando a criança a transitar da escola para o lar.</p>
-                <a href="#" class="btn-acao">Ver Materiais</a>
+                <p>Materiais visuais e dicas para criar uma rotina previsível, ajudando a criança a transitar da escola para o lar.</p>
+                <a href="conteudo-pais.html#rotina" class="btn-acao">Ver Materiais</a>
             </div>
 
             <div class="card-recurso">
                 <div class="icone">🫂</div>
                 <h3>Comunidade de Pais</h3>
-                <p>Você não está sozinho. Conecte-se com outras famílias atípicas para trocar experiências, dicas e acolhimento.</p>
-                <a href="#" class="btn-acao">Entrar no Fórum</a>
+                <p>Você não está sozinho. Conecte-se com outras famílias atípicas para trocar experiências e acolhimento.</p>
+                <a href="conteudo-pais.html#comunidade" class="btn-acao">Entrar no Fórum</a>
             </div>
 
             <div class="card-recurso">
                 <div class="icone">🩺</div>
                 <h3>Apoio Psicológico</h3>
-                <p>A saúde mental de quem cuida também importa. Encontre dicas de autocuidado e agendamento de orientação.</p>
-                <a href="#" class="btn-acao">Buscar Apoio</a>
+                <p>A saúde mental de quem cuida também importa. Encontre dicas de autocuidado e agendamento.</p>
+                <a href="conteudo-pais.html#apoio" class="btn-acao">Buscar Apoio</a>
             </div>
 
         </div>
