@@ -7,41 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --azul-suave: #8EB8CB;
-            --azul-escuro: #2C3E50;
-            --fundo-site: #F4F7F6;
-            --verde-calmo: #81C784;
-            --fundo-chat: #E8F0F2;
-        }
-
+        :root { --azul-suave: #8EB8CB; --azul-escuro: #2C3E50; --fundo-site: #F4F7F6; --verde-calmo: #81C784; --fundo-chat: #E8F0F2; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
         body { background-color: var(--fundo-site); display: flex; justify-content: center; align-items: center; height: 100vh; }
-
         .chat-container { width: 100%; max-width: 450px; height: 90vh; background-color: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; border: 4px solid var(--azul-suave); }
-
         .chat-header { background-color: var(--azul-suave); color: white; padding: 20px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
         .voltar-btn { color: white; text-decoration: none; font-size: 1.5em; font-weight: bold; }
         .perfil-psi { width: 45px; height: 45px; background-color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5em; position: relative; }
         .perfil-psi::after { content: ''; position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background-color: #4CAF50; border-radius: 50%; border: 2px solid white; }
         .info-psi h3 { font-size: 1.1em; margin-bottom: 2px; }
         .info-psi p { font-size: 0.8em; opacity: 0.9; }
-
         .chat-box { flex: 1; background-color: var(--fundo-chat); padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
-
         .mensagem { max-width: 80%; padding: 12px 16px; border-radius: 15px; font-size: 0.95em; line-height: 1.4; animation: fadeIn 0.3s ease-in; position: relative; }
         .msg-recebida { background-color: white; color: var(--azul-escuro); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .msg-enviada { background-color: var(--verde-calmo); color: white; align-self: flex-end; border-bottom-right-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        
         .hora { font-size: 0.7em; opacity: 0.7; margin-top: 5px; display: block; text-align: right; }
-
-        /* MÁGICA DO DIGITANDO */
         .digitando { display: none; align-self: flex-start; background-color: white; padding: 12px 16px; border-radius: 15px; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .ponto { width: 8px; height: 8px; background-color: var(--azul-suave); border-radius: 50%; display: inline-block; margin: 0 2px; animation: pular 1.4s infinite ease-in-out both; }
-        .ponto:nth-child(1) { animation-delay: -0.32s; }
-        .ponto:nth-child(2) { animation-delay: -0.16s; }
-        
+        .ponto:nth-child(1) { animation-delay: -0.32s; } .ponto:nth-child(2) { animation-delay: -0.16s; }
         .chat-input-area { background-color: white; padding: 15px; border-top: 1px solid #eee; z-index: 10; }
         .botoes-rapidos { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 10px; scrollbar-width: none; }
         .botoes-rapidos::-webkit-scrollbar { display: none; }
@@ -51,7 +34,6 @@
         .input-box input { flex: 1; padding: 12px 15px; border: 1px solid #ccc; border-radius: 25px; outline: none; font-size: 0.95em; }
         .btn-enviar { background-color: var(--azul-suave); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.2em; display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
         .btn-enviar:hover { transform: scale(1.05); }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pular { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
     </style>
@@ -70,15 +52,12 @@
 
         <div class="chat-box" id="caixa-mensagens">
             <div class="mensagem msg-recebida">
-                Olá! Sou a Dra. Marina, psicóloga do Sunfloweredu. Como posso te ajudar hoje? Pode digitar ou usar os botões abaixo.
+                Olá! Sou a Dra. Marina, psicóloga do Sunfloweredu. Como posso te ajudar hoje? Pode digitar ou usar os botões rápidos.
                 <span class="hora" id="hora-inicial"></span>
             </div>
             
-            <!-- Balão de "Digitando" escondido -->
             <div class="digitando" id="indicador-digitando">
-                <div class="ponto"></div>
-                <div class="ponto"></div>
-                <div class="ponto"></div>
+                <div class="ponto"></div><div class="ponto"></div><div class="ponto"></div>
             </div>
         </div>
 
@@ -100,59 +79,82 @@
         const campoTexto = document.getElementById('campo-texto');
         const indicadorDigitando = document.getElementById('indicador-digitando');
 
-        // Coloca a hora atual na primeira mensagem
         function pegarHoraAtual() {
             const data = new Date();
             return data.getHours().toString().padStart(2, '0') + ':' + data.getMinutes().toString().padStart(2, '0');
         }
         document.getElementById('hora-inicial').innerText = pegarHoraAtual();
 
-        function rolarParaFinal() {
-            caixaMensagens.scrollTop = caixaMensagens.scrollHeight;
-        }
+        function rolarParaFinal() { caixaMensagens.scrollTop = caixaMensagens.scrollHeight; }
 
         function adicionarMensagem(texto) {
             if (texto.trim() === '') return;
 
-            // Cria a mensagem do usuário
             const novaMensagem = document.createElement('div');
             novaMensagem.className = 'mensagem msg-enviada';
             novaMensagem.innerHTML = `${texto} <span class="hora">${pegarHoraAtual()}</span>`;
 
-            // Insere antes do indicador de "digitando"
             caixaMensagens.insertBefore(novaMensagem, indicadorDigitando);
             campoTexto.value = '';
             rolarParaFinal();
 
-            // Mostra que a psicóloga está digitando
             indicadorDigitando.style.display = 'block';
             rolarParaFinal();
 
-            // Simula o tempo que ela leva para responder (2.5 segundos)
-            setTimeout(() => simularResposta(texto), 2500);
+            // Sorteia um tempo de digitação entre 1.5 e 3.5 segundos para parecer humano
+            const tempoDigitacao = Math.floor(Math.random() * 2000) + 1500;
+            setTimeout(() => simularResposta(texto), tempoDigitacao);
         }
 
         function enviarMensagemManual() { adicionarMensagem(campoTexto.value); }
         function enviarMensagemRapida(texto) { adicionarMensagem(texto); }
         function verificarEnter(event) { if (event.key === 'Enter') enviarMensagemManual(); }
 
-        function simularResposta(textoUsuario) {
-            indicadorDigitando.style.display = 'none'; // Esconde as bolinhas
-            const textoMinusculo = textoUsuario.toLowerCase();
-            let respostaTexto = "Compreendo. Me conte um pouco mais sobre o que está acontecendo. Estou aqui para te apoiar.";
+        // Banco de respostas com múltiplas opções para não repetir!
+        const bancoDeRespostas = {
+            crise: [
+                "Estou aqui! Mantenha a calma. Primeiro: afaste os outros alunos e diminua as luzes. Ele está em risco de se machucar?",
+                "Respire fundo. Não tente tocá-lo agora, o toque pode piorar a sobrecarga. Apenas diminua o barulho da sala. Quer que eu te guie passo a passo?",
+                "Situação de crise confirmada. Garanta a segurança física dele e dos colegas. Fale com a voz mais baixa e calma possível. O que desencadeou isso?"
+            ],
+            atividade: [
+                "Para adaptar atividades, a melhor estratégia inicial é diminuir a poluição visual da folha. Você quer tentar dividir essa tarefa em etapas menores?",
+                "Entendi! Que tal usar o interesse fixo do aluno (como dinossauros ou carros) para ilustrar o exercício de hoje? Isso costuma ajudar muito no engajamento.",
+                "Se a demanda escrita estiver difícil, tente oferecer uma resposta verbal ou de apontar cartões. Qual é a matéria que você está tentando adaptar?"
+            ],
+            desabafar: [
+                "Sinto muito que você esteja passando por isso. O dia a dia na escola é exaustivo. Quer me contar o que foi a gota d'água hoje?",
+                "Estou te ouvindo. Pode falar tudo o que está sentindo, é um ambiente seguro. É muito importante colocar isso para fora.",
+                "Eu imagino o quanto isso seja desgastante. Você é um profissional incrível por estar buscando ajuda. Como você está se sentindo fisicamente agora?"
+            ],
+            padrao: [
+                "Entendo. Pode me dar um pouco mais de contexto sobre isso?",
+                "Nossa, imagino como seja. E como você está lidando com essa situação no momento?",
+                "Certo, estou acompanhando. Continue, por favor.",
+                "Interessante... Você já tentou registrar isso no Diário de Bordo para observarmos os padrões?"
+            ]
+        };
 
-            // Inteligência artificial simples para dar a resposta certa
-            if (textoMinusculo.includes("crise")) {
-                respostaTexto = "Estou aqui! Mantenha a calma. Primeiro passo: afaste os outros alunos e diminua as luzes. Não tente abraçar ou tocar no aluno agora. Ele está em risco de se machucar?";
-            } else if (textoMinusculo.includes("atividade")) {
-                respostaTexto = "Para adaptar atividades, a melhor estratégia inicial é diminuir a poluição visual da folha e usar comandos curtos. Você quer tentar dividir a tarefa atual em 3 passos menores?";
-            } else if (textoMinusculo.includes("desabafar")) {
-                respostaTexto = "Sinto muito que você esteja passando por isso. O dia a dia na escola é realmente exaustivo e é normal se sentir no limite. Quer me contar o que foi a gota d'água hoje?";
+        function simularResposta(textoUsuario) {
+            indicadorDigitando.style.display = 'none'; 
+            const texto = textoUsuario.toLowerCase();
+            let categoria = 'padrao';
+
+            if (texto.includes("crise") || texto.includes("socorro") || texto.includes("surto")) {
+                categoria = 'crise';
+            } else if (texto.includes("atividade") || texto.includes("adaptar") || texto.includes("aula")) {
+                categoria = 'atividade';
+            } else if (texto.includes("desabafar") || texto.includes("cansada") || texto.includes("estresse")) {
+                categoria = 'desabafar';
             }
+
+            // Sorteia uma resposta aleatória dentro da categoria escolhida
+            const respostasPossiveis = bancoDeRespostas[categoria];
+            const respostaSorteada = respostasPossiveis[Math.floor(Math.random() * respostasPossiveis.length)];
 
             const resposta = document.createElement('div');
             resposta.className = 'mensagem msg-recebida';
-            resposta.innerHTML = `${respostaTexto} <span class="hora">${pegarHoraAtual()}</span>`;
+            resposta.innerHTML = `${respostaSorteada} <span class="hora">${pegarHoraAtual()}</span>`;
             
             caixaMensagens.insertBefore(resposta, indicadorDigitando);
             rolarParaFinal();
