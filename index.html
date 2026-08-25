@@ -20,7 +20,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--fundo-site); color: var(--azul-escuro); scroll-behavior: smooth; overflow-x: hidden; }
 
-        /* HEADER */
         header {
             position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(15px); padding: 15px 50px; display: flex;
@@ -34,39 +33,22 @@
         .btn-familia { background-color: #FFB703; color: white !important; padding: 8px 20px; border-radius: 30px; box-shadow: 0 4px 10px rgba(255, 183, 3, 0.3); transition: transform 0.2s; }
         .btn-familia:hover { transform: scale(1.05); color: white !important; }
 
-        /* HERO SECTION */
         .hero {
             text-align: center; padding: 180px 20px 100px;
             background: radial-gradient(circle at top, #ffffff 0%, #E8F0F2 100%);
             border-bottom: 2px solid #eaeaea; position: relative;
         }
-        .badge-lancamento {
-            display: inline-block; background: #e3f2fd; color: var(--azul-suave);
-            padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.85em;
-            margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
-        }
+        .badge-lancamento { display: inline-block; background: #e3f2fd; color: var(--azul-suave); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.85em; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
         .hero h1 { font-size: 3.5em; margin-bottom: 20px; line-height: 1.2; color: var(--azul-escuro); }
         .hero p { font-size: 1.2em; max-width: 700px; margin: 0 auto; color: #666; line-height: 1.6; }
 
-        /* GRID DE CARTÕES */
         .conteudo-titulo { text-align: center; margin: 80px 0 20px; font-size: 2.2em; }
-        .conteudo-real {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; padding: 20px 50px 80px; max-width: 1200px; margin: 0 auto;
-        }
+        .conteudo-real { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px 50px 80px; max-width: 1200px; margin: 0 auto; }
         
-        .card-peca {
-            background: white; padding: 40px 30px; border-radius: 20px; position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #f0f0f0; display: flex; flex-direction: column; align-items: flex-start;
-        }
+        .card-peca { background: white; padding: 40px 30px; border-radius: 20px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0; display: flex; flex-direction: column; align-items: flex-start; }
         .card-peca:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         
-        .icone-bolha {
-            width: 60px; height: 60px; border-radius: 15px; display: flex;
-            justify-content: center; align-items: center; font-size: 1.8em; margin-bottom: 20px;
-        }
-
+        .icone-bolha { width: 60px; height: 60px; border-radius: 15px; display: flex; justify-content: center; align-items: center; font-size: 1.8em; margin-bottom: 20px; }
         .peca-1 .icone-bolha { background: #e3f2fd; } .peca-1 h3 { color: var(--azul-suave); }
         .peca-2 .icone-bolha { background: #ffebee; } .peca-2 h3 { color: var(--vermelho-sos); }
         .peca-3 .icone-bolha { background: #fff8e1; } .peca-3 h3 { color: var(--amarelo-girassol); }
@@ -77,20 +59,10 @@
         .card-peca ul { padding-left: 0; list-style: none; color: #666; margin-bottom: 25px; flex-grow: 1; }
         .card-peca ul li { margin-bottom: 12px; line-height: 1.5; font-size: 0.95em; position: relative; padding-left: 20px; }
         .card-peca ul li::before { content: '•'; position: absolute; left: 0; color: #ccc; font-size: 1.2em; }
-
-        /* Botão Moderno nos Cartões */
-        .btn-card {
-            display: inline-block; padding: 10px 20px; border-radius: 10px; text-decoration: none;
-            font-weight: 600; width: 100%; text-align: center; transition: all 0.2s;
-            background: #f8f9fa; color: var(--azul-escuro); border: 1px solid #e0e0e0;
-        }
+        .btn-card { display: inline-block; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; width: 100%; text-align: center; transition: all 0.2s; background: #f8f9fa; color: var(--azul-escuro); border: 1px solid #e0e0e0; }
         .btn-card:hover { background: var(--azul-escuro); color: white; border-color: var(--azul-escuro); }
 
-        /* GUIA RÁPIDO */
-        .sessao-ajuda {
-            max-width: 900px; margin: 0 auto 100px; padding: 50px; background: white;
-            border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);
-        }
+        .sessao-ajuda { max-width: 900px; margin: 0 auto 100px; padding: 50px; background: white; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
         .sessao-ajuda h2 { text-align: center; margin-bottom: 40px; font-size: 2em; }
         details { background: #fdfdfd; border: 1px solid #eee; border-radius: 12px; margin-bottom: 15px; transition: all 0.3s ease; }
         details:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
@@ -100,21 +72,28 @@
         details[open] summary:after { transform: rotate(180deg); }
         .resposta { padding: 0 20px 20px; color: #666; line-height: 1.6; font-size: 0.95em; }
 
-        /* RODAPÉ PROFISSIONAL */
-        footer {
-            background-color: var(--azul-escuro); color: white; padding: 40px 50px; text-align: center;
-        }
+        footer { background-color: var(--azul-escuro); color: white; padding: 40px 50px; text-align: center; }
         .footer-logo { font-size: 1.5em; font-weight: 700; margin-bottom: 10px; color: var(--amarelo-girassol); }
-        .footer-texto { font-size: 0.9em; opacity: 0.7; margin-bottom: 20px; }
         
         .escondido { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
         .mostrar { opacity: 1; transform: translateY(0); }
 
-        /* BOTÃO SOS E MASCOTE */
         .btn-sos { position: fixed; bottom: 30px; right: 30px; background-color: var(--vermelho-sos); color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none; font-weight: bold; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5); z-index: 9999; animation: pulse 2s infinite; display: flex; align-items: center; gap: 10px; }
+        
+        /* ==== ESTILOS DO NOVO MASCOTE ==== */
         #mascote-container { position: fixed; bottom: 30px; left: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
-        .mascote-icone { font-size: 4em; filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.2)); animation: flutuar 3s ease-in-out infinite; }
-        .balao-fala { background-color: white; border: 2px solid var(--amarelo-girassol); color: var(--azul-escuro); padding: 15px 20px; border-radius: 20px; font-weight: 600; font-size: 0.9em; width: 260px; min-height: 70px; text-align: center; margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative; display: flex; align-items: center; justify-content: center; }
+        .mascote-desenho { width: 90px; height: 90px; filter: drop-shadow(0px 8px 10px rgba(0,0,0,0.15)); animation: flutuar 3s ease-in-out infinite; }
+        
+        /* Animações Exclusivas do Mascote */
+        .olhos { animation: piscar-olho 4s infinite; transform-origin: 50px 46px; }
+        #bracinho { animation: acenar 2s infinite ease-in-out; transform-origin: 50px 80px; }
+        #petalas { animation: girar-petalas 20s linear infinite; transform-origin: 50px 50px; }
+
+        @keyframes piscar-olho { 0%, 96%, 100% { transform: scaleY(1); } 98% { transform: scaleY(0.1); } }
+        @keyframes acenar { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(20deg); } }
+        @keyframes girar-petalas { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .balao-fala { background-color: white; border: 2px solid var(--amarelo-girassol); color: var(--azul-escuro); padding: 15px 20px; border-radius: 20px; font-weight: 600; font-size: 0.9em; width: 260px; min-height: 70px; text-align: center; margin-bottom: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); position: relative; display: flex; align-items: center; justify-content: center; }
         .balao-fala::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-width: 10px 10px 0; border-style: solid; border-color: var(--amarelo-girassol) transparent transparent transparent; }
         .cursor { display: inline-block; width: 2px; height: 1.1em; background-color: var(--azul-escuro); margin-left: 2px; vertical-align: middle; animation: piscar 0.7s infinite; }
 
@@ -140,17 +119,61 @@
         <p>A primeira plataforma que cuida de quem educa. Tudo o que você precisa para compreender, acolher e adaptar o ensino para alunos no Transtorno do Espectro Autista (TEA).</p>
     </section>
 
+    <!-- ==== O NOVO MASCOTE (DESENHADO EM CÓDIGO) ==== -->
     <div id="mascote-container" onclick="mudarDica()">
         <div class="balao-fala">
             <span id="texto-mascote"></span><span class="cursor" id="cursor-pisca"></span>
         </div>
-        <div class="mascote-icone">🌻</div>
+        
+        <!-- SVG (Gráfico Vetorial Escalável) do Sunny -->
+        <svg class="mascote-desenho" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Caule -->
+            <rect x="47" y="65" width="6" height="35" fill="#4CAF50" rx="3" />
+            
+            <!-- Bracinho Esquerdo (Parado) -->
+            <path d="M 50 80 Q 20 75 35 60 Q 50 70 50 80" fill="#81C784" />
+            
+            <!-- Bracinho Direito (Acenando - Tem Animação) -->
+            <g id="bracinho">
+                <path d="M 50 80 Q 80 75 65 60 Q 50 70 50 80" fill="#81C784" />
+            </g>
+            
+            <!-- Pétalas (Girando) -->
+            <g id="petalas" fill="#F3C623">
+                <ellipse cx="50" cy="18" rx="9" ry="20" />
+                <ellipse cx="50" cy="82" rx="9" ry="20" />
+                <ellipse cx="18" cy="50" rx="20" ry="9" />
+                <ellipse cx="82" cy="50" rx="20" ry="9" />
+                <ellipse cx="27" cy="27" rx="18" ry="9" transform="rotate(45 27 27)"/>
+                <ellipse cx="73" cy="73" rx="18" ry="9" transform="rotate(45 73 73)"/>
+                <ellipse cx="27" cy="73" rx="18" ry="9" transform="rotate(-45 27 73)"/>
+                <ellipse cx="73" cy="27" rx="18" ry="9" transform="rotate(-45 73 27)"/>
+            </g>
+            
+            <!-- Rosto (Centro do Girassol) -->
+            <circle cx="50" cy="50" r="23" fill="#5D4037"/>
+            
+            <!-- Bochechas -->
+            <circle cx="38" cy="53" r="3.5" fill="#FF8A80" opacity="0.9"/>
+            <circle cx="62" cy="53" r="3.5" fill="#FF8A80" opacity="0.9"/>
+            
+            <!-- Sorriso -->
+            <path d="M 43 56 Q 50 63 57 56" stroke="white" stroke-width="2.5" fill="transparent" stroke-linecap="round"/>
+            
+            <!-- Olhos Animados (Piscando) -->
+            <g class="olhos">
+                <circle cx="42" cy="46" r="4" fill="white"/>
+                <circle cx="58" cy="46" r="4" fill="white"/>
+                <!-- Pupilas -->
+                <circle cx="43" cy="46" r="1.5" fill="#2C3E50"/>
+                <circle cx="57" cy="46" r="1.5" fill="#2C3E50"/>
+            </g>
+        </svg>
     </div>
 
     <h2 class="conteudo-titulo">Explore nossos pilares</h2>
     
     <section class="conteudo-real" id="conteudo">
-        
         <div class="card-peca peca-1 escondido">
             <div class="icone-bolha">🧠</div>
             <h3>Compreensão do TEA</h3>
@@ -200,24 +223,20 @@
             </ul>
             <a href="recursos.html#apoio" class="btn-card">Acessar Apoio</a>
         </div>
-
     </section>
 
     <section class="sessao-ajuda escondido" id="ajuda">
-        <h2>💡 Guia de Sobrevivência na Sala de Aula</h2>
-        
+        <h2>💡 Guia de Sobrevivência</h2>
         <details>
             <summary>O aluno entrou em crise de choro. O que eu faço primeiro?</summary>
             <div class="resposta">Primeiro passo: <strong>garanta a segurança</strong>. Afaste objetos perigosos e peça para a turma manter distância. Diminua as luzes. Não tente abraçar ou tocar o aluno sem permissão. Diga em voz calma e baixa: "Estou aqui, você está seguro".</div>
         </details>
-
         <details>
             <summary>O aluno tenta fugir da sala (Elopement).</summary>
-            <div class="resposta">Não corra atrás gritando. Acompanhe o aluno mantendo distância segura, bloqueando rotas para áreas perigosas (rua, escadas). Acione a coordenação pelo rádio ou peça para outro aluno avisar a direção discretamente.</div>
+            <div class="resposta">Não corra atrás gritando. Acompanhe o aluno mantendo distância segura, bloqueando rotas para áreas perigosas. Acione a coordenação pelo rádio ou peça para outro aluno avisar a direção discretamente.</div>
         </details>
     </section>
 
-    <!-- NOVO RODAPÉ -->
     <footer>
         <div class="footer-logo">🌻 Sunfloweredu</div>
         <p class="footer-texto">Acolhendo educadores e famílias na jornada da inclusão escolar.</p>
@@ -227,7 +246,7 @@
     <a href="chat.html" class="btn-sos">🆘 Chat com Psicólogo</a>
 
     <script>
-        const dicas = ["Olá, professor! Eu sou o Sunny. 🌻", "O design novo ficou lindo, não acha?", "Precisa de ajuda urgente? O botão vermelho liga direto pro psicólogo! 🆘"];
+        const dicas = ["Olá, professor! Eu sou o novo Sunny. 🌻", "Viu como eu consigo piscar e acenar agora? 👋", "O design do site está cada vez mais incrível!", "Precisa de ajuda urgente? O botão vermelho liga pro psicólogo! 🆘"];
         let contador = 0; let indexLetra = 0; let escrevendo = false;
         function digitar() { const areaTexto = document.getElementById('texto-mascote'); const textoAtual = dicas[contador]; if (indexLetra < textoAtual.length) { areaTexto.innerHTML += textoAtual.charAt(indexLetra); indexLetra++; setTimeout(digitar, 40); } else { escrevendo = false; contador++; if (contador >= dicas.length) contador = 0; } }
         function mudarDica() { if (escrevendo) return; escrevendo = true; document.getElementById('texto-mascote').innerHTML = ''; indexLetra = 0; digitar(); }
