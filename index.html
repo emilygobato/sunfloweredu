@@ -20,7 +20,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--fundo-site); color: var(--azul-escuro); scroll-behavior: smooth; }
 
-        /* HEADER VIDRO */
         header {
             position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px); padding: 20px 50px; display: flex;
@@ -30,7 +29,6 @@
         header h2 { color: var(--azul-escuro); }
         nav a { color: var(--azul-escuro); text-decoration: none; margin-left: 30px; font-weight: 600; }
 
-        /* HERO SECTION */
         .hero {
             text-align: center; padding: 160px 20px 80px;
             background: linear-gradient(135deg, #FDF6E3 0%, #E8F0F2 100%);
@@ -39,10 +37,8 @@
         .hero h1 { font-size: 3em; margin-bottom: 20px; }
         .hero p { font-size: 1.2em; max-width: 800px; margin: 0 auto 30px auto; color: #555; }
 
-        /* CONTEÚDO REAL - AS 5 PEÇAS */
         .conteudo-real {
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px; padding: 60px 50px; max-width: 1200px; margin: 0 auto;
         }
         
@@ -52,10 +48,7 @@
             border-top: 6px solid #ccc;
         }
         
-        .card-peca:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-        }
+        .card-peca:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
 
         .peca-1 { border-top-color: var(--azul-suave); }
         .peca-2 { border-top-color: var(--vermelho-sos); }
@@ -67,18 +60,10 @@
         .card-peca ul { padding-left: 20px; color: #555; margin-bottom: 15px; }
         .card-peca ul li { margin-bottom: 10px; line-height: 1.5; }
 
-        /* Link dentro do card */
-        .link-card {
-            display: inline-block;
-            margin-top: 10px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
+        .link-card { display: inline-block; margin-top: 10px; font-weight: bold; text-decoration: none; transition: opacity 0.3s; }
         .link-card:hover { opacity: 0.7; }
         .link-verde { color: var(--verde-calmo); }
 
-        /* BOTÃO SOS CONECTADO */
         .btn-sos {
             position: fixed; bottom: 30px; right: 30px; background-color: var(--vermelho-sos);
             color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none;
@@ -100,14 +85,31 @@
         .balao-fala {
             background-color: white; border: 3px solid var(--amarelo-girassol);
             color: var(--azul-escuro); padding: 15px 20px; border-radius: 20px;
-            font-weight: 600; font-size: 0.95em; max-width: 250px; text-align: center;
+            font-weight: 600; font-size: 0.95em; width: 260px; min-height: 80px; text-align: center;
             margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative;
+            display: flex; align-items: center; justify-content: center;
         }
         
         .balao-fala::after {
             content: ''; position: absolute; bottom: -12px; left: 50%;
             transform: translateX(-50%); border-width: 12px 12px 0;
             border-style: solid; border-color: var(--amarelo-girassol) transparent transparent transparent;
+        }
+
+        /* ANIMAÇÃO DO CURSOR PISCANDO */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background-color: var(--azul-escuro);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: piscar 0.7s infinite;
+        }
+
+        @keyframes piscar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         @keyframes flutuar {
@@ -138,8 +140,8 @@
 
     <!-- O MASCOTE INTERATIVO -->
     <div id="mascote-container" onclick="mudarDica()">
-        <div class="balao-fala" id="mensagem-mascote">
-            Olá, professor! Eu sou o Sunny. 🌻 Clique em mim para explorar as 5 peças do nosso quebra-cabeça!
+        <div class="balao-fala">
+            <span id="texto-mascote"></span><span class="cursor" id="cursor-pisca"></span>
         </div>
         <div class="mascote-icone">🌻🧩</div>
     </div>
@@ -147,84 +149,93 @@
     <!-- CONTEÚDO REAL - AS 5 PEÇAS -->
     <section class="conteudo-real" id="conteudo">
         
-        <!-- PEÇA 1 -->
         <div class="card-peca peca-1">
             <h3>🧠 Compreensão do TEA</h3>
             <ul>
                 <li><strong>Conheça o espectro:</strong> Entendendo a variabilidade e os perfis.</li>
                 <li><strong>Gatilhos comuns:</strong> Situações que causam desregulação.</li>
-                <li><strong>Processamento Sensorial:</strong> O impacto de sons, luzes e texturas.</li>
             </ul>
         </div>
 
-        <!-- PEÇA 2 -->
         <div class="card-peca peca-2">
             <h3>🆘 Manejo de Crises</h3>
             <ul>
                 <li><strong>Técnicas de Desescalada:</strong> Estratégias para acalmar o aluno.</li>
                 <li><strong>Ambientes Calmos:</strong> Criando espaços de refúgio sensorial.</li>
-                <li><strong>Comunicação:</strong> Falar de forma clara, sem sobrecarregar.</li>
             </ul>
         </div>
 
-        <!-- PEÇA 3 -->
         <div class="card-peca peca-3">
             <h3>🎨 Adaptação Curricular</h3>
             <ul>
                 <li><strong>Planejamento Visual:</strong> Uso de roteiros visuais para tarefas.</li>
-                <li><strong>Jogos Inclusivos:</strong> Dinâmicas de interação e colaboração.</li>
-                <li><strong>Avaliação Flexível:</strong> Indo além das provas tradicionais.</li>
             </ul>
-             <!-- LINK ADICIONADO AQUI: -->
             <a href="adaptacao.html" class="link-card" style="color: var(--amarelo-girassol);">Acessar Catálogo ➔</a>
         </div>
 
-        <!-- PEÇA 4 (Agora com o Link para a página que criamos) -->
         <div class="card-peca peca-4">
             <h3>📊 Diário de Bordo</h3>
             <ul>
                 <li><strong>Registro de gatilhos:</strong> Identificando padrões de comportamento.</li>
-                <li><strong>Evolução do aluno:</strong> Documentando progressos diários.</li>
-                <li><strong>Família:</strong> Compartilhamento de informações essenciais.</li>
             </ul>
-            <!-- LINK ADICIONADO AQUI: -->
             <a href="diario.html" class="link-card link-verde">Acessar Diário de Bordo ➔</a>
         </div>
 
-        <!-- PEÇA 5 -->
         <div class="card-peca peca-5">
             <h3>🫂 Apoio ao Professor</h3>
             <ul>
                 <li><strong>Saúde Mental:</strong> Recursos para lidar com o estresse e burnout.</li>
-                <li><strong>Comunidade:</strong> Troca de experiências e apoio mútuo.</li>
-                <li><strong>Formação:</strong> Acesso a materiais contínuos sobre inclusão.</li>
             </ul>
         </div>
 
     </section>
 
-    <!-- BOTÃO DE EMERGÊNCIA (Agora conectado ao chat.html) -->
     <a href="chat.html" class="btn-sos">🆘 Chat com Psicólogo</a>
 
+    <!-- SCRIPT DA DIGITAÇÃO (JAVASCRIPT) -->
     <script>
         const dicas = [
+            "Olá, professor! Eu sou o Sunny. 🌻 Clique em mim para explorar nosso quebra-cabeça!",
             "Precisa de ajuda urgente? O botão vermelho ali na direita liga direto pro psicólogo! 🆘",
             "A Peça Azul (Compreensão) é a base de tudo. Comece lendo sobre Processamento Sensorial! 🧠",
-            "A Peça Vermelha (Manejo) te ajuda a criar um 'refúgio' na sala de aula. 🤫",
-            "Lembre-se: o comportamento é comunicação. O Diário de Bordo (Peça Verde) te ajuda a entender isso! 📊",
-            "E não se esqueça da Peça Roxa: você também precisa de cuidado para poder cuidar! 🫂"
+            "Lembre-se: o comportamento é comunicação. O Diário de Bordo te ajuda a entender isso! 📊",
+            "Você também precisa de cuidado para poder cuidar! 🫂"
         ];
 
         let contador = 0;
+        let indexLetra = 0;
+        let escrevendo = false; // Impede que a pessoa quebre o efeito clicando várias vezes rápido
 
-        function mudarDica() {
-            const balao = document.getElementById('mensagem-mascote');
-            balao.innerText = dicas[contador];
-            contador++;
-            if (contador >= dicas.length) {
-                contador = 0;
+        function digitar() {
+            const areaTexto = document.getElementById('texto-mascote');
+            const textoAtual = dicas[contador];
+
+            // Se ainda tem letras para digitar
+            if (indexLetra < textoAtual.length) {
+                areaTexto.innerHTML += textoAtual.charAt(indexLetra);
+                indexLetra++;
+                setTimeout(digitar, 40); // Velocidade da digitação (40 milissegundos)
+            } else {
+                // Terminou de digitar
+                escrevendo = false;
+                contador++; 
+                if (contador >= dicas.length) contador = 0; // Volta pra primeira frase se acabarem
             }
         }
+
+        function mudarDica() {
+            if (escrevendo) return; // Se já estiver digitando, não faz nada
+            
+            escrevendo = true;
+            document.getElementById('texto-mascote').innerHTML = ''; // Limpa o balão
+            indexLetra = 0;
+            digitar(); // Chama a função que digita
+        }
+
+        // Faz o mascote começar a falar sozinho assim que o site carrega!
+        window.onload = function() {
+            mudarDica();
+        };
     </script>
 
 </body>
