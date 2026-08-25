@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptação Curricular - Sunfloweredu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azul-suave: #8EB8CB;
+            --azul-escuro: #2C3E50;
+            --amarelo-girassol: #F3C623;
+            --fundo-site: #F4F7F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--fundo-site); color: var(--azul-escuro); padding-top: 80px; }
+
+        header {
+            position: fixed; top: 0; width: 100%; background: var(--amarelo-girassol);
+            color: var(--azul-escuro); padding: 15px 50px; display: flex; align-items: center; gap: 20px;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .voltar-btn { color: var(--azul-escuro); text-decoration: none; font-size: 1.5em; font-weight: bold; }
+        header h2 { font-weight: 700; }
+        
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        .filtros {
+            display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; justify-content: center;
+        }
+
+        .btn-filtro {
+            background: white; border: 2px solid var(--azul-suave); color: var(--azul-suave);
+            padding: 8px 20px; border-radius: 30px; font-weight: 600; cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-filtro:hover, .btn-filtro.ativo {
+            background: var(--azul-suave); color: white;
+        }
+
+        .catalogo {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+        }
+
+        .card-atividade {
+            background: white; border-radius: 15px; padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05); transition: transform 0.3s;
+            border-left: 5px solid var(--amarelo-girassol);
+        }
+
+        .card-atividade:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
+
+        .tag {
+            display: inline-block; background: #E8F0F2; color: var(--azul-escuro);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .card-atividade h3 { margin-bottom: 10px; font-size: 1.2em; }
+        .card-atividade p { font-size: 0.9em; color: #666; margin-bottom: 15px; line-height: 1.5; }
+
+        .btn-ver {
+            display: inline-block; background: var(--azul-escuro); color: white;
+            padding: 8px 15px; border-radius: 8px; text-decoration: none;
+            font-size: 0.9em; font-weight: 600; transition: background 0.2s;
+        }
+        .btn-ver:hover { background: #1a252f; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="voltar-btn">←</a>
+        <h2>🎨 Catálogo de Adaptações</h2>
+    </header>
+
+    <div class="container">
+        
+        <!-- Botões de Filtro -->
+        <div class="filtros">
+            <button class="btn-filtro ativo" onclick="filtrar('todas')">Todas</button>
+            <button class="btn-filtro" onclick="filtrar('visual')">Suporte Visual</button>
+            <button class="btn-filtro" onclick="filtrar('sensorial')">Sensorial</button>
+            <button class="btn-filtro" onclick="filtrar('social')">Socialização</button>
+        </div>
+
+        <!-- Lista de Atividades -->
+        <div class="catalogo" id="lista-atividades">
+            
+            <div class="card-atividade visual">
+                <span class="tag">🧩 Suporte Visual</span>
+                <h3>Rotina em Imagens</h3>
+                <p>Crie um quadro com velcro usando pictogramas (imagens simples) das tarefas do dia para reduzir a ansiedade do aluno.</p>
+                <a href="#" class="btn-ver">Ver Material</a>
+            </div>
+
+            <div class="card-atividade sensorial">
+                <span class="tag">🤫 Sensorial</span>
+                <h3>Caixa Tátil de Foco</h3>
+                <p>Uma caixa com diferentes texturas (areia cinética, bolinhas em gel) para o aluno usar quando precisar se autorregular.</p>
+                <a href="#" class="btn-ver">Ver Material</a>
+            </div>
+
+            <div class="card-atividade social">
+                <span class="tag">🤝 Socialização</span>
+                <h3>Jogo de Interesses Restritos</h3>
+                <p>Use o hiperfoco do aluno (ex: dinossauros, trens) como tema central de um jogo em dupla para estimular a comunicação.</p>
+                <a href="#" class="btn-ver">Ver Material</a>
+            </div>
+
+            <div class="card-atividade visual">
+                <span class="tag">🧩 Suporte Visual</span>
+                <h3>Instruções Passo a Passo</h3>
+                <p>Divida atividades complexas em 3 passos simples desenhados, entregando uma etapa por vez para evitar sobrecarga.</p>
+                <a href="#" class="btn-ver">Ver Material</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Função simples para filtrar os cards (apenas visual, sem lógica complexa para manter simples agora)
+        function filtrar(categoria) {
+            alert("A funcionalidade de filtro será ativada em breve na versão final! Você selecionou: " + categoria);
+        }
+    </script>
+</body>
+</html>
