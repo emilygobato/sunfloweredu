@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos da Família - Sunfloweredu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azul-escuro: #2C3E50;
+            --laranja-acolhimento: #FFB703;
+            --fundo-site: #FDF9F1;
+            --verde-calmo: #81C784;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--fundo-site); color: var(--azul-escuro); padding-top: 80px; scroll-behavior: smooth; }
+
+        header {
+            position: fixed; top: 0; width: 100%; background: var(--laranja-acolhimento);
+            color: var(--azul-escuro); padding: 15px 50px; display: flex; align-items: center; gap: 20px;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .voltar-btn { color: var(--azul-escuro); text-decoration: none; font-size: 1.5em; font-weight: bold; }
+        header h2 { font-weight: 700; }
+        
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        .secao-guia {
+            background: white; padding: 40px; border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); margin-bottom: 50px;
+            border-top: 8px solid var(--laranja-acolhimento);
+        }
+
+        .secao-guia h2 { font-size: 2em; margin-bottom: 20px; color: var(--laranja-acolhimento); display: flex; align-items: center; gap: 10px; }
+        .secao-guia h3 { font-size: 1.3em; margin-top: 30px; margin-bottom: 10px; color: #444; }
+        .secao-guia p { line-height: 1.8; color: #555; margin-bottom: 15px; font-size: 1.05em; }
+
+        /* Estilo do Fórum Simulado */
+        .post-forum {
+            background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid var(--verde-calmo);
+        }
+        .post-forum h4 { margin-bottom: 5px; color: var(--azul-escuro); }
+        .post-forum span { font-size: 0.85em; color: #777; display: block; margin-bottom: 10px; }
+        
+        .btn-download { display: inline-block; background: var(--azul-escuro); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 10px; }
+        .btn-download:hover { background: #1a252f; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="pais.html" class="voltar-btn">← Voltar</a>
+        <h2>📚 Conteúdos para Família</h2>
+    </header>
+
+    <div class="container">
+        
+        <!-- ROTINA EM CASA -->
+        <section class="secao-guia" id="rotina">
+            <h2>🏠 Rotina em Casa</h2>
+            <p>A previsibilidade ajuda a reduzir a ansiedade. Quando a criança sabe o que vai acontecer a seguir, ela se sente mais segura.</p>
+            
+            <h3>Transição Escola ➔ Casa</h3>
+            <p>Muitas crianças têm "efeito rebote" quando chegam em casa (choram, ficam agitadas). Isso acontece porque a escola exige muito esforço para "mascarar" e seguir regras. Ao chegar no ambiente seguro de casa, a represa se rompe.</p>
+            <ul>
+                <li>Ofereça um tempo de silêncio absoluto logo após a escola.</li>
+                <li>Evite fazer muitas perguntas como "Como foi seu dia?".</li>
+            </ul>
+
+            <a href="#" class="btn-download">Baixar Quadro de Rotina Visual (PDF)</a>
+        </section>
+
+        <!-- COMUNIDADE -->
+        <section class="secao-guia" id="comunidade">
+            <h2>🫂 Comunidade de Pais</h2>
+            <p>Troque experiências com quem entende os desafios e as vitórias do seu dia a dia.</p>
+            
+            <div class="post-forum">
+                <h4>Mãe do Leo (7 anos)</h4>
+                <span>Postado há 2 horas</span>
+                <p>Gente, o Leo finalmente conseguiu ir ao mercado comigo hoje usando os abafadores de ruído! Foi uma vitória enorme para nós. Aos poucos estamos conseguindo expandir os passeios!</p>
+            </div>
+
+            <div class="post-forum">
+                <h4>Pai da Sofia (5 anos)</h4>
+                <span>Postado há 5 horas</span>
+                <p>Alguém tem dicas para seletividade alimentar extrema? A Sofia só quer comer coisas crocantes e da cor bege. Estou ficando sem ideias.</p>
+            </div>
+            
+            <a href="#" class="btn-download">Publicar uma nova mensagem</a>
+        </section>
+
+        <!-- APOIO PSICOLÓGICO -->
+        <section class="secao-guia" id="apoio">
+            <h2>🩺 Apoio Psicológico aos Pais</h2>
+            <p>A taxa de burnout em pais de crianças atípicas é muito alta. Você não é egoísta por precisar de uma pausa.</p>
+            
+            <h3>Sinais de alerta:</h3>
+            <ul>
+                <li>Irritabilidade constante e choro sem motivo aparente.</li>
+                <li>Dificuldade para dormir mesmo quando a criança está dormindo.</li>
+                <li>Sentimento crônico de culpa.</li>
+            </ul>
+
+            <a href="chat.html" class="btn-download" style="background: #FF6B6B;">Agendar sessão com Psicólogo</a>
+        </section>
+
+    </div>
+
+</body>
+</html>
