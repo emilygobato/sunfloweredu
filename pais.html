@@ -10,9 +10,8 @@
         :root {
             --azul-suave: #8EB8CB;
             --azul-escuro: #2C3E50;
-            --amarelo-girassol: #F3C623;
             --laranja-acolhimento: #FFB703;
-            --fundo-site: #FDF9F1; /* Um fundo um pouco mais quente e acolhedor */
+            --fundo-site: #FDF9F1;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -57,14 +56,11 @@
         .card-recurso p { font-size: 0.95em; color: #555; margin-bottom: 20px; line-height: 1.5; }
 
         .btn-acao {
-            display: inline-block; background: var(--azul-suave); color: white;
+            display: inline-block; background: var(--azul-escuro); color: white;
             padding: 10px 20px; border-radius: 8px; text-decoration: none;
             font-weight: 600; transition: background 0.2s; width: 100%;
         }
-        .btn-acao:hover { background: #769fb2; }
-        .btn-secundario { background: #f1f1f1; color: var(--azul-escuro); }
-        .btn-secundario:hover { background: #e2e2e2; }
-
+        .btn-acao:hover { background: #1a252f; }
     </style>
 </head>
 <body>
@@ -85,29 +81,29 @@
             <div class="card-recurso">
                 <div class="icone">📖</div>
                 <h3>Diário do Aluno</h3>
-                <p>Veja os registros feitos pelo professor hoje. Saiba como foi o dia, quais atividades foram feitas e quais gatilhos evitar em casa.</p>
+                <p>Veja os registros feitos pelo professor hoje. Saiba como foi o dia, quais atividades foram feitas e quais gatilhos evitar.</p>
                 <a href="#" class="btn-acao">Acessar Diário</a>
             </div>
 
             <div class="card-recurso">
                 <div class="icone">🏠</div>
                 <h3>Rotina em Casa</h3>
-                <p>Materiais visuais e dicas para criar uma rotina previsível em casa, ajudando a criança a transitar da escola para o lar sem crises.</p>
-                <a href="#" class="btn-acao btn-secundario">Ver Materiais</a>
+                <p>Materiais visuais e dicas para criar uma rotina previsível em casa, ajudando a criança a transitar da escola para o lar.</p>
+                <a href="#" class="btn-acao">Ver Materiais</a>
             </div>
 
             <div class="card-recurso">
                 <div class="icone">🫂</div>
                 <h3>Comunidade de Pais</h3>
                 <p>Você não está sozinho. Conecte-se com outras famílias atípicas para trocar experiências, dicas e acolhimento.</p>
-                <a href="#" class="btn-acao btn-secundario">Entrar no Fórum</a>
+                <a href="#" class="btn-acao">Entrar no Fórum</a>
             </div>
 
             <div class="card-recurso">
                 <div class="icone">🩺</div>
-                <h3>Apoio aos Pais</h3>
-                <p>A saúde mental de quem cuida também importa. Dicas de autocuidado e agendamento de orientação com nossos psicólogos.</p>
-                <a href="#" class="btn-acao btn-secundario">Buscar Apoio</a>
+                <h3>Apoio Psicológico</h3>
+                <p>A saúde mental de quem cuida também importa. Encontre dicas de autocuidado e agendamento de orientação.</p>
+                <a href="#" class="btn-acao">Buscar Apoio</a>
             </div>
 
         </div>
