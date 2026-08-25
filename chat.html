@@ -17,197 +17,77 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         
-        body { 
-            background-color: var(--fundo-site); 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; /* Ocupa a tela toda */
-        }
+        body { background-color: var(--fundo-site); display: flex; justify-content: center; align-items: center; height: 100vh; }
 
-        /* Container principal do celular/chat */
-        .chat-container {
-            width: 100%;
-            max-width: 450px;
-            height: 90vh;
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 4px solid var(--azul-suave);
-        }
+        .chat-container { width: 100%; max-width: 450px; height: 90vh; background-color: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; border: 4px solid var(--azul-suave); }
 
-        /* Cabeçalho do Chat */
-        .chat-header {
-            background-color: var(--azul-suave);
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .voltar-btn {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .perfil-psi {
-            width: 45px;
-            height: 45px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-        }
-
+        .chat-header { background-color: var(--azul-suave); color: white; padding: 20px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 10; }
+        .voltar-btn { color: white; text-decoration: none; font-size: 1.5em; font-weight: bold; }
+        .perfil-psi { width: 45px; height: 45px; background-color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5em; position: relative; }
+        .perfil-psi::after { content: ''; position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background-color: #4CAF50; border-radius: 50%; border: 2px solid white; }
         .info-psi h3 { font-size: 1.1em; margin-bottom: 2px; }
         .info-psi p { font-size: 0.8em; opacity: 0.9; }
 
-        /* Área das mensagens */
-        .chat-box {
-            flex: 1;
-            background-color: var(--fundo-chat);
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .chat-box { flex: 1; background-color: var(--fundo-chat); padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; scroll-behavior: smooth; }
 
-        /* Estilo dos balões de mensagem */
-        .mensagem {
-            max-width: 80%;
-            padding: 12px 16px;
-            border-radius: 15px;
-            font-size: 0.95em;
-            line-height: 1.4;
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        .msg-recebida {
-            background-color: white;
-            color: var(--azul-escuro);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .msg-enviada {
-            background-color: var(--verde-calmo);
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        /* Área de digitar e botões rápidos */
-        .chat-input-area {
-            background-color: white;
-            padding: 15px;
-            border-top: 1px solid #eee;
-        }
-
-        .botoes-rapidos {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-            /* Esconde a barra de rolagem mas mantém a função */
-            scrollbar-width: none; 
-        }
+        .mensagem { max-width: 80%; padding: 12px 16px; border-radius: 15px; font-size: 0.95em; line-height: 1.4; animation: fadeIn 0.3s ease-in; position: relative; }
+        .msg-recebida { background-color: white; color: var(--azul-escuro); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .msg-enviada { background-color: var(--verde-calmo); color: white; align-self: flex-end; border-bottom-right-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         
+        .hora { font-size: 0.7em; opacity: 0.7; margin-top: 5px; display: block; text-align: right; }
+
+        /* MÁGICA DO DIGITANDO */
+        .digitando { display: none; align-self: flex-start; background-color: white; padding: 12px 16px; border-radius: 15px; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .ponto { width: 8px; height: 8px; background-color: var(--azul-suave); border-radius: 50%; display: inline-block; margin: 0 2px; animation: pular 1.4s infinite ease-in-out both; }
+        .ponto:nth-child(1) { animation-delay: -0.32s; }
+        .ponto:nth-child(2) { animation-delay: -0.16s; }
+        
+        .chat-input-area { background-color: white; padding: 15px; border-top: 1px solid #eee; z-index: 10; }
+        .botoes-rapidos { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 10px; scrollbar-width: none; }
         .botoes-rapidos::-webkit-scrollbar { display: none; }
-
-        .btn-rapido {
-            background-color: #FDF6E3;
-            border: 1px solid #F3C623;
-            color: var(--azul-escuro);
-            padding: 8px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
+        .btn-rapido { background-color: #FDF6E3; border: 1px solid #F3C623; color: var(--azul-escuro); padding: 8px 12px; border-radius: 15px; font-size: 0.8em; white-space: nowrap; cursor: pointer; transition: background 0.2s; }
         .btn-rapido:hover { background-color: #F3C623; color: white; }
-
-        .input-box {
-            display: flex;
-            gap: 10px;
-        }
-
-        .input-box input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            outline: none;
-            font-size: 0.95em;
-        }
-
-        .btn-enviar {
-            background-color: var(--azul-suave);
-            color: white;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.2s;
-        }
-
+        .input-box { display: flex; gap: 10px; }
+        .input-box input { flex: 1; padding: 12px 15px; border: 1px solid #ccc; border-radius: 25px; outline: none; font-size: 0.95em; }
+        .btn-enviar { background-color: var(--azul-suave); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.2em; display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
         .btn-enviar:hover { transform: scale(1.05); }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pular { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
     </style>
 </head>
 <body>
 
     <div class="chat-container">
-        <!-- CABEÇALHO -->
         <div class="chat-header">
             <a href="index.html" class="voltar-btn">←</a>
             <div class="perfil-psi">🧑‍⚕️</div>
             <div class="info-psi">
                 <h3>Dra. Marina Silva</h3>
-                <p>🟢 Especialista em TEA | Online</p>
+                <p>🟢 Online agora</p>
             </div>
         </div>
 
-        <!-- ÁREA DE MENSAGENS -->
         <div class="chat-box" id="caixa-mensagens">
             <div class="mensagem msg-recebida">
-                Olá, professor! Sou a Dra. Marina. Como posso te ajudar agora? Mande sua dúvida ou clique em um botão rápido abaixo.
+                Olá! Sou a Dra. Marina, psicóloga do Sunfloweredu. Como posso te ajudar hoje? Pode digitar ou usar os botões abaixo.
+                <span class="hora" id="hora-inicial"></span>
+            </div>
+            
+            <!-- Balão de "Digitando" escondido -->
+            <div class="digitando" id="indicador-digitando">
+                <div class="ponto"></div>
+                <div class="ponto"></div>
+                <div class="ponto"></div>
             </div>
         </div>
 
-        <!-- ÁREA DE DIGITAÇÃO -->
         <div class="chat-input-area">
-            <!-- Botões Rápidos (Para emergências) -->
             <div class="botoes-rapidos">
                 <button class="btn-rapido" onclick="enviarMensagemRapida('🚨 Aluno em crise agora!')">🚨 Aluno em crise!</button>
-                <button class="btn-rapido" onclick="enviarMensagemRapida('Dúvida sobre atividade')">🎨 Dúvida sobre atividade</button>
+                <button class="btn-rapido" onclick="enviarMensagemRapida('Dúvida sobre atividade')">🎨 Dúvida de adaptação</button>
                 <button class="btn-rapido" onclick="enviarMensagemRapida('Preciso desabafar')">🫂 Preciso desabafar</button>
             </div>
-
-            <!-- Caixa de Texto -->
             <div class="input-box">
                 <input type="text" id="campo-texto" placeholder="Digite sua mensagem..." onkeypress="verificarEnter(event)">
                 <button class="btn-enviar" onclick="enviarMensagemManual()">➤</button>
@@ -215,60 +95,68 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT PARA FAZER O CHAT FUNCIONAR -->
     <script>
         const caixaMensagens = document.getElementById('caixa-mensagens');
         const campoTexto = document.getElementById('campo-texto');
+        const indicadorDigitando = document.getElementById('indicador-digitando');
 
-        // Função para criar o balão de mensagem do professor
+        // Coloca a hora atual na primeira mensagem
+        function pegarHoraAtual() {
+            const data = new Date();
+            return data.getHours().toString().padStart(2, '0') + ':' + data.getMinutes().toString().padStart(2, '0');
+        }
+        document.getElementById('hora-inicial').innerText = pegarHoraAtual();
+
+        function rolarParaFinal() {
+            caixaMensagens.scrollTop = caixaMensagens.scrollHeight;
+        }
+
         function adicionarMensagem(texto) {
-            if (texto.trim() === '') return; // Não envia mensagem vazia
+            if (texto.trim() === '') return;
 
-            // Cria a div da mensagem enviada
+            // Cria a mensagem do usuário
             const novaMensagem = document.createElement('div');
             novaMensagem.className = 'mensagem msg-enviada';
-            novaMensagem.innerText = texto;
+            novaMensagem.innerHTML = `${texto} <span class="hora">${pegarHoraAtual()}</span>`;
 
-            // Adiciona na tela
-            caixaMensagens.appendChild(novaMensagem);
-
-            // Rola o chat para o final
-            caixaMensagens.scrollTop = caixaMensagens.scrollHeight;
-
-            // Limpa o campo de texto
+            // Insere antes do indicador de "digitando"
+            caixaMensagens.insertBefore(novaMensagem, indicadorDigitando);
             campoTexto.value = '';
+            rolarParaFinal();
 
-            // Simula uma resposta da psicóloga após 1 segundo
-            setTimeout(simularResposta, 1000);
+            // Mostra que a psicóloga está digitando
+            indicadorDigitando.style.display = 'block';
+            rolarParaFinal();
+
+            // Simula o tempo que ela leva para responder (2.5 segundos)
+            setTimeout(() => simularResposta(texto), 2500);
         }
 
-        // Função do botão enviar
-        function enviarMensagemManual() {
-            adicionarMensagem(campoTexto.value);
-        }
+        function enviarMensagemManual() { adicionarMensagem(campoTexto.value); }
+        function enviarMensagemRapida(texto) { adicionarMensagem(texto); }
+        function verificarEnter(event) { if (event.key === 'Enter') enviarMensagemManual(); }
 
-        // Função dos botões rápidos
-        function enviarMensagemRapida(texto) {
-            adicionarMensagem(texto);
-        }
+        function simularResposta(textoUsuario) {
+            indicadorDigitando.style.display = 'none'; // Esconde as bolinhas
+            const textoMinusculo = textoUsuario.toLowerCase();
+            let respostaTexto = "Compreendo. Me conte um pouco mais sobre o que está acontecendo. Estou aqui para te apoiar.";
 
-        // Função para enviar apertando a tecla Enter
-        function verificarEnter(event) {
-            if (event.key === 'Enter') {
-                enviarMensagemManual();
+            // Inteligência artificial simples para dar a resposta certa
+            if (textoMinusculo.includes("crise")) {
+                respostaTexto = "Estou aqui! Mantenha a calma. Primeiro passo: afaste os outros alunos e diminua as luzes. Não tente abraçar ou tocar no aluno agora. Ele está em risco de se machucar?";
+            } else if (textoMinusculo.includes("atividade")) {
+                respostaTexto = "Para adaptar atividades, a melhor estratégia inicial é diminuir a poluição visual da folha e usar comandos curtos. Você quer tentar dividir a tarefa atual em 3 passos menores?";
+            } else if (textoMinusculo.includes("desabafar")) {
+                respostaTexto = "Sinto muito que você esteja passando por isso. O dia a dia na escola é realmente exaustivo e é normal se sentir no limite. Quer me contar o que foi a gota d'água hoje?";
             }
-        }
 
-        // Função para simular a psicóloga respondendo
-        function simularResposta() {
             const resposta = document.createElement('div');
             resposta.className = 'mensagem msg-recebida';
-            resposta.innerText = "Estou aqui com você. Respire fundo. O que desencadeou essa situação? Me conte para eu te guiar passo a passo.";
+            resposta.innerHTML = `${respostaTexto} <span class="hora">${pegarHoraAtual()}</span>`;
             
-            caixaMensagens.appendChild(resposta);
-            caixaMensagens.scrollTop = caixaMensagens.scrollHeight;
+            caixaMensagens.insertBefore(resposta, indicadorDigitando);
+            rolarParaFinal();
         }
     </script>
-
 </body>
 </html>
