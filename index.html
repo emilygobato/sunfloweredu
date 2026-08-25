@@ -39,7 +39,7 @@
 
         .conteudo-real {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; padding: 60px 50px; max-width: 1200px; margin: 0 auto;
+            gap: 30px; padding: 60px 50px 20px; max-width: 1200px; margin: 0 auto;
         }
         
         .card-peca {
@@ -58,24 +58,40 @@
 
         .card-peca h3 { font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
         .card-peca ul { padding-left: 20px; color: #555; margin-bottom: 15px; }
-        .card-peca ul li { margin-bottom: 10px; line-height: 1.5; }
+        .card-peca ul li { margin-bottom: 10px; line-height: 1.5; font-size: 0.95em; }
 
         .link-card { display: inline-block; margin-top: 10px; font-weight: bold; text-decoration: none; transition: opacity 0.3s; }
         .link-card:hover { opacity: 0.7; }
         .link-verde { color: var(--verde-calmo); }
 
-        /* ===== MÁGICA DO CSS: ANIMAÇÕES DE ROLAGEM ===== */
-        .escondido {
-            opacity: 0;
-            transform: translateY(60px); /* Começa 60px mais para baixo */
-            transition: all 0.8s ease-out; /* Velocidade da animação */
+        /* ===== NOVA SEÇÃO: GUIA RÁPIDO (FAQ) ===== */
+        .sessao-ajuda {
+            max-width: 1000px; margin: 20px auto 100px; padding: 40px 50px;
+            background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--vermelho-sos);
         }
 
-        .mostrar {
-            opacity: 1;
-            transform: translateY(0); /* Volta para a posição original */
+        .sessao-ajuda h2 { text-align: center; margin-bottom: 30px; font-size: 2em; color: var(--azul-escuro); }
+
+        details {
+            background: var(--fundo-site); border-radius: 10px; margin-bottom: 15px;
+            overflow: hidden; transition: all 0.3s ease;
         }
-        /* ============================================== */
+        
+        summary {
+            padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; list-style: none; color: var(--azul-escuro); font-size: 1.1em;
+        }
+        
+        summary::-webkit-details-marker { display: none; } /* Remove setinha padrão */
+        summary:after { content: '+'; font-size: 1.5em; color: var(--vermelho-sos); transition: transform 0.3s; }
+        details[open] summary:after { transform: rotate(45deg); }
+        
+        .resposta { padding: 0 20px 20px; color: #555; line-height: 1.6; border-top: 1px solid #ddd; margin-top: 10px; padding-top: 15px; }
+
+        /* ===== ANIMAÇÕES ===== */
+        .escondido { opacity: 0; transform: translateY(60px); transition: all 0.8s ease-out; }
+        .mostrar { opacity: 1; transform: translateY(0); }
 
         .btn-sos {
             position: fixed; bottom: 30px; right: 30px; background-color: var(--vermelho-sos);
@@ -84,23 +100,10 @@
             animation: pulse 2s infinite; display: flex; align-items: center; gap: 10px;
         }
 
-        #mascote-container {
-            position: fixed; bottom: 30px; left: 30px; z-index: 9999;
-            display: flex; flex-direction: column; align-items: center; cursor: pointer;
-        }
-        
+        #mascote-container { position: fixed; bottom: 30px; left: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         .mascote-icone { font-size: 4em; filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.2)); animation: flutuar 3s ease-in-out infinite; }
-
-        .balao-fala {
-            background-color: white; border: 3px solid var(--amarelo-girassol);
-            color: var(--azul-escuro); padding: 15px 20px; border-radius: 20px;
-            font-weight: 600; font-size: 0.95em; width: 260px; min-height: 80px; text-align: center;
-            margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative;
-            display: flex; align-items: center; justify-content: center;
-        }
-        
+        .balao-fala { background-color: white; border: 3px solid var(--amarelo-girassol); color: var(--azul-escuro); padding: 15px 20px; border-radius: 20px; font-weight: 600; font-size: 0.95em; width: 260px; min-height: 80px; text-align: center; margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; display: flex; align-items: center; justify-content: center; }
         .balao-fala::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); border-width: 12px 12px 0; border-style: solid; border-color: var(--amarelo-girassol) transparent transparent transparent; }
-
         .cursor { display: inline-block; width: 2px; height: 1.1em; background-color: var(--azul-escuro); margin-left: 2px; vertical-align: middle; animation: piscar 0.7s infinite; }
 
         @keyframes piscar { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -114,6 +117,7 @@
         <h2>🌻 Sunfloweredu</h2>
         <nav>
             <a href="#conteudo">Recursos e Guias</a>
+            <a href="#ajuda">Guia Rápido</a>
         </nav>
     </header>
 
@@ -129,37 +133,42 @@
         <div class="mascote-icone">🌻🧩</div>
     </div>
 
-    <!-- Note que adicionei a classe "escondido" em cada cartão -->
+    <!-- PEÇAS DO QUEBRA-CABEÇA COM MAIS CONTEÚDO -->
     <section class="conteudo-real" id="conteudo">
         
         <div class="card-peca peca-1 escondido">
             <h3>🧠 Compreensão do TEA</h3>
             <ul>
-                <li><strong>Conheça o espectro:</strong> Entendendo a variabilidade e os perfis.</li>
-                <li><strong>Gatilhos comuns:</strong> Situações que causam desregulação.</li>
+                <li><strong>Conheça o espectro:</strong> Perfis de suporte e neurodiversidade.</li>
+                <li><strong>Gatilhos comuns:</strong> Som alto, luz forte, mudanças de rotina.</li>
+                <li><strong>Sinais de sobrecarga:</strong> Mãos no ouvido, balanço do corpo (stimming), agitação.</li>
             </ul>
         </div>
 
         <div class="card-peca peca-2 escondido">
             <h3>🆘 Manejo de Crises</h3>
             <ul>
-                <li><strong>Técnicas de Desescalada:</strong> Estratégias para acalmar o aluno.</li>
-                <li><strong>Ambientes Calmos:</strong> Criando espaços de refúgio sensorial.</li>
+                <li><strong>Desescalada verbal:</strong> Fale pouco, baixo e de forma literal.</li>
+                <li><strong>Refúgio Sensorial:</strong> Crie um cantinho com pufes e abafadores de ruído na sala.</li>
+                <li><strong>Pausa Programada:</strong> Permita que o aluno saia 5 min antes do sinal para evitar o barulho do pátio.</li>
             </ul>
         </div>
 
         <div class="card-peca peca-3 escondido">
             <h3>🎨 Adaptação Curricular</h3>
             <ul>
-                <li><strong>Planejamento Visual:</strong> Uso de roteiros visuais para tarefas.</li>
+                <li><strong>Caixa Tátil:</strong> Atividades de matemática com massinha ou blocos texturizados.</li>
+                <li><strong>Economia de Fichas:</strong> Recompensas visuais para tarefas concluídas.</li>
+                <li><strong>Rotina Visual:</strong> Lousa com imagens das 3 próximas tarefas.</li>
             </ul>
-            <a href="adaptacao.html" class="link-card" style="color: var(--amarelo-girassol);">Acessar Catálogo ➔</a>
+            <a href="adaptacao.html" class="link-card" style="color: var(--amarelo-girassol);">Acessar Catálogo Completo ➔</a>
         </div>
 
         <div class="card-peca peca-4 escondido">
             <h3>📊 Diário de Bordo</h3>
             <ul>
-                <li><strong>Registro de gatilhos:</strong> Identificando padrões de comportamento.</li>
+                <li><strong>Mapeamento A-B-C:</strong> Anote o Antecedente, o Comportamento e a Consequência.</li>
+                <li><strong>Gráfico de Humor:</strong> Monitore se as manhãs são mais difíceis que as tardes.</li>
             </ul>
             <a href="diario.html" class="link-card link-verde">Acessar Diário de Bordo ➔</a>
         </div>
@@ -167,22 +176,48 @@
         <div class="card-peca peca-5 escondido">
             <h3>🫂 Apoio ao Professor</h3>
             <ul>
-                <li><strong>Saúde Mental:</strong> Recursos para lidar com o estresse e burnout.</li>
+                <li><strong>Plantão de Dúvidas:</strong> Sessões semanais online com terapeutas ocupacionais.</li>
+                <li><strong>Prevenção de Burnout:</strong> Exercícios de respiração guiada entre aulas.</li>
             </ul>
         </div>
 
     </section>
 
+    <!-- NOVA SEÇÃO DE AJUDA -->
+    <section class="sessao-ajuda escondido" id="ajuda">
+        <h2>💡 Guia de Sobrevivência na Sala de Aula</h2>
+        
+        <details>
+            <summary>O aluno entrou em crise de choro e grito. O que eu faço primeiro?</summary>
+            <div class="resposta">
+                Primeiro passo: <strong>garanta a segurança</strong>. Afaste objetos perigosos e peça para a turma manter distância. Diminua as luzes da sala se possível. Não tente abraçar ou tocar o aluno sem permissão (o toque pode piorar a sobrecarga). Abaixe-se na altura dele e diga em voz calma e baixa: "Estou aqui, você está seguro".
+            </div>
+        </details>
+
+        <details>
+            <summary>O aluno tenta fugir da sala (Elopement) quando está frustrado.</summary>
+            <div class="resposta">
+                Não corra atrás gritando, pois isso pode virar um "jogo" ou aumentar o pânico. Acompanhe o aluno mantendo uma distância segura, bloqueando rotas para áreas perigosas (como a rua ou escadas). Acione a coordenação pelo rádio ou peça para outro aluno avisar a direção discretamente.
+            </div>
+        </details>
+
+        <details>
+            <summary>Como incluir um aluno que não se comunica verbalmente?</summary>
+            <div class="resposta">
+                A comunicação é muito mais que a fala! Use o método de Comunicação Alternativa (CAA). Tenha cartões de apontar (PECS) com figuras como "Banheiro", "Estou cansado", "Quero ajuda". Nas atividades em grupo, dê a ele papéis práticos, como entregar os papéis para os colegas, garantindo que ele interaja sem a pressão da fala.
+            </div>
+        </details>
+    </section>
+
     <a href="chat.html" class="btn-sos">🆘 Chat com Psicólogo</a>
 
     <script>
-        /* ===== SCRIPT DO MASCOTE (DIGITAÇÃO) ===== */
         const dicas = [
-            "Olá, professor! Eu sou o Sunny. 🌻 Clique em mim para explorar nosso quebra-cabeça!",
-            "Precisa de ajuda urgente? O botão vermelho ali na direita liga direto pro psicólogo! 🆘",
-            "A Peça Azul (Compreensão) é a base de tudo. Comece lendo sobre Processamento Sensorial! 🧠",
-            "Lembre-se: o comportamento é comunicação. O Diário de Bordo te ajuda a entender isso! 📊",
-            "Você também precisa de cuidado para poder cuidar! 🫂"
+            "Olá, professor! Eu sou o Sunny. 🌻",
+            "Lá no final da página tem um Guia de Sobrevivência novo, já viu? 💡",
+            "Precisa de ajuda urgente? O botão vermelho liga direto pro psicólogo! 🆘",
+            "A Peça Azul (Compreensão) é a base de tudo! 🧠",
+            "O comportamento é comunicação. O Diário te ajuda a entender isso! 📊"
         ];
         let contador = 0; let indexLetra = 0; let escrevendo = false;
 
@@ -210,19 +245,14 @@
 
         window.onload = function() { mudarDica(); };
 
-        /* ===== MÁGICA DO JAVASCRIPT: OBSERVADOR DE ROLAGEM ===== */
-        // Esse código "observa" quando as peças aparecem na tela e dispara a animação
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('mostrar'); // Adiciona a classe que faz aparecer
+                    entry.target.classList.add('mostrar');
                 }
             });
-        }, {
-            threshold: 0.1 // O efeito acontece quando 10% do cartão aparece na tela
-        });
+        }, { threshold: 0.1 });
 
-        // Pega todos os elementos que têm a classe 'escondido' e manda observar
         const elementosEscondidos = document.querySelectorAll('.escondido');
         elementosEscondidos.forEach((el) => observer.observe(el));
     </script>
