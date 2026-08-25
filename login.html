@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sunfloweredu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azul-suave: #8EB8CB;
+            --azul-escuro: #2C3E50;
+            --amarelo-girassol: #F3C623;
+            --fundo-site: #F4F7F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { 
+            background: linear-gradient(135deg, #FDF6E3 0%, #E8F0F2 100%);
+            display: flex; justify-content: center; align-items: center; height: 100vh; color: var(--azul-escuro);
+        }
+
+        .login-container {
+            background: white; width: 100%; max-width: 400px; padding: 40px 30px;
+            border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center; border-top: 6px solid var(--amarelo-girassol);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .logo-h1 { font-size: 2em; margin-bottom: 5px; color: var(--azul-escuro); }
+        .subtitulo { font-size: 0.9em; color: #666; margin-bottom: 30px; }
+
+        /* Seletor de Perfil */
+        .seletor-perfil {
+            display: flex; background: #f1f1f1; border-radius: 30px; margin-bottom: 25px; overflow: hidden;
+        }
+        .btn-perfil {
+            flex: 1; padding: 10px; border: none; background: transparent; font-weight: 600;
+            color: #777; cursor: pointer; transition: all 0.3s;
+        }
+        .btn-perfil.ativo {
+            background: var(--azul-suave); color: white; border-radius: 30px;
+        }
+
+        /* Campos de Formulário */
+        .campo-form { margin-bottom: 20px; text-align: left; }
+        .campo-form label { display: block; font-size: 0.85em; font-weight: 600; margin-bottom: 5px; }
+        .campo-form input {
+            width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 10px;
+            outline: none; font-size: 0.95em; transition: border-color 0.3s;
+        }
+        .campo-form input:focus { border-color: var(--azul-suave); }
+
+        /* Botão de Entrar */
+        .btn-entrar {
+            width: 100%; background: var(--amarelo-girassol); color: var(--azul-escuro);
+            padding: 12px; border: none; border-radius: 10px; font-size: 1.1em;
+            font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        .btn-entrar:hover {
+            transform: translateY(-2px); box-shadow: 0 5px 15px rgba(243, 198, 35, 0.4);
+        }
+
+        .links-extras { margin-top: 20px; font-size: 0.85em; }
+        .links-extras a { color: var(--azul-suave); text-decoration: none; font-weight: 600; }
+        .links-extras a:hover { text-decoration: underline; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1 class="logo-h1">🌻 Sunfloweredu</h1>
+        <p class="subtitulo">Apoio, inclusão e acolhimento.</p>
+
+        <!-- Botões para escolher quem está logando -->
+        <div class="seletor-perfil">
+            <button class="btn-perfil ativo" id="btn-prof" onclick="selecionarPerfil('prof')">Professor</button>
+            <button class="btn-perfil" id="btn-fam" onclick="selecionarPerfil('fam')">Família</button>
+        </div>
+
+        <form id="form-login" onsubmit="fazerLogin(event)">
+            <div class="campo-form">
+                <label>E-mail</label>
+                <input type="email" placeholder="Digite seu e-mail" required>
+            </div>
+            
+            <div class="campo-form">
+                <label>Senha</label>
+                <input type="password" placeholder="Digite sua senha" required>
+            </div>
+
+            <button type="submit" class="btn-entrar">Entrar no Sistema</button>
+        </form>
+
+        <div class="links-extras">
+            <p><a href="#">Esqueci minha senha</a></p>
+            <p style="margin-top: 10px;">Ainda não tem conta? <a href="#">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para mudar a cor do botão Professor/Família
+        function selecionarPerfil(perfil) {
+            document.getElementById('btn-prof').classList.remove('ativo');
+            document.getElementById('btn-fam').classList.remove('ativo');
+            
+            if (perfil === 'prof') {
+                document.getElementById('btn-prof').classList.add('ativo');
+            } else {
+                document.getElementById('btn-fam').classList.add('ativo');
+            }
+        }
+
+        // Função que simula o login e te leva para a página inicial
+        function fazerLogin(event) {
+            event.preventDefault(); // Impede a página de recarregar
+            
+            // Verifica qual perfil está selecionado para mandar pra página certa
+            const isFamiliar = document.getElementById('btn-fam').classList.contains('ativo');
+            
+            if (isFamiliar) {
+                window.location.href = 'pais.html'; // Manda para o portal dos pais
+            } else {
+                window.location.href = 'index.html'; // Manda para o portal do professor
+            }
+        }
+    </script>
+</body>
+</html>
