@@ -27,40 +27,19 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
         header h2 { color: var(--azul-escuro); }
-        
-        /* Menu de Navegação - AQUI ESTÁ A MUDANÇA */
         nav { display: flex; align-items: center; }
         nav a { color: var(--azul-escuro); text-decoration: none; margin-left: 30px; font-weight: 600; transition: opacity 0.3s; }
         nav a:hover { opacity: 0.7; }
-        
-        .btn-familia {
-            color: #FFB703 !important; /* Laranja da área dos pais */
-            border: 2px solid #FFB703;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
+        .btn-familia { color: #FFB703 !important; border: 2px solid #FFB703; padding: 5px 15px; border-radius: 20px; }
 
-        .hero {
-            text-align: center; padding: 160px 20px 80px;
-            background: linear-gradient(135deg, #FDF6E3 0%, #E8F0F2 100%);
-            border-bottom: 5px dashed var(--amarelo-girassol);
-        }
+        .hero { text-align: center; padding: 160px 20px 80px; background: linear-gradient(135deg, #FDF6E3 0%, #E8F0F2 100%); border-bottom: 5px dashed var(--amarelo-girassol); }
         .hero h1 { font-size: 3em; margin-bottom: 20px; }
         .hero p { font-size: 1.2em; max-width: 800px; margin: 0 auto 30px auto; color: #555; }
 
-        .conteudo-real {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; padding: 60px 50px 20px; max-width: 1200px; margin: 0 auto;
-        }
-        
-        .card-peca {
-            background: white; padding: 30px; border-radius: 15px; position: relative;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 6px solid #ccc;
-        }
-        
+        .conteudo-real { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 60px 50px 20px; max-width: 1200px; margin: 0 auto; }
+        .card-peca { background: white; padding: 30px; border-radius: 15px; position: relative; box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border-top: 6px solid #ccc; display: flex; flex-direction: column; }
         .card-peca:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-
+        
         .peca-1 { border-top-color: var(--azul-suave); }
         .peca-2 { border-top-color: var(--vermelho-sos); }
         .peca-3 { border-top-color: var(--amarelo-girassol); }
@@ -68,49 +47,26 @@
         .peca-5 { border-top-color: var(--roxo-apoio); }
 
         .card-peca h3 { font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .card-peca ul { padding-left: 20px; color: #555; margin-bottom: 15px; }
+        .card-peca ul { padding-left: 20px; color: #555; margin-bottom: 15px; flex-grow: 1; }
         .card-peca ul li { margin-bottom: 10px; line-height: 1.5; font-size: 0.95em; }
 
-        .link-card { display: inline-block; margin-top: 10px; font-weight: bold; text-decoration: none; transition: opacity 0.3s; }
+        .link-card { display: inline-block; margin-top: auto; font-weight: bold; text-decoration: none; transition: opacity 0.3s; }
         .link-card:hover { opacity: 0.7; }
-        .link-verde { color: var(--verde-calmo); }
 
-        /* ===== GUIA RÁPIDO (FAQ) ===== */
-        .sessao-ajuda {
-            max-width: 1000px; margin: 20px auto 100px; padding: 40px 50px;
-            background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-left: 8px solid var(--vermelho-sos);
-        }
-
+        /* GUIA RÁPIDO E ANIMAÇÕES */
+        .sessao-ajuda { max-width: 1000px; margin: 20px auto 100px; padding: 40px 50px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--vermelho-sos); }
         .sessao-ajuda h2 { text-align: center; margin-bottom: 30px; font-size: 2em; color: var(--azul-escuro); }
-
-        details {
-            background: var(--fundo-site); border-radius: 10px; margin-bottom: 15px;
-            overflow: hidden; transition: all 0.3s ease;
-        }
-        
-        summary {
-            padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;
-            align-items: center; list-style: none; color: var(--azul-escuro); font-size: 1.1em;
-        }
-        
+        details { background: var(--fundo-site); border-radius: 10px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease; }
+        summary { padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; color: var(--azul-escuro); font-size: 1.1em; }
         summary::-webkit-details-marker { display: none; }
         summary:after { content: '+'; font-size: 1.5em; color: var(--vermelho-sos); transition: transform 0.3s; }
         details[open] summary:after { transform: rotate(45deg); }
-        
         .resposta { padding: 0 20px 20px; color: #555; line-height: 1.6; border-top: 1px solid #ddd; margin-top: 10px; padding-top: 15px; }
-
-        /* ===== ANIMAÇÕES ===== */
         .escondido { opacity: 0; transform: translateY(60px); transition: all 0.8s ease-out; }
         .mostrar { opacity: 1; transform: translateY(0); }
 
-        .btn-sos {
-            position: fixed; bottom: 30px; right: 30px; background-color: var(--vermelho-sos);
-            color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none;
-            font-weight: bold; box-shadow: 0 4px 20px rgba(255, 107, 107, 0.6); z-index: 9999;
-            animation: pulse 2s infinite; display: flex; align-items: center; gap: 10px;
-        }
-
+        /* BOTÃO SOS E MASCOTE */
+        .btn-sos { position: fixed; bottom: 30px; right: 30px; background-color: var(--vermelho-sos); color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 20px rgba(255, 107, 107, 0.6); z-index: 9999; animation: pulse 2s infinite; display: flex; align-items: center; gap: 10px; }
         #mascote-container { position: fixed; bottom: 30px; left: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
         .mascote-icone { font-size: 4em; filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.2)); animation: flutuar 3s ease-in-out infinite; }
         .balao-fala { background-color: white; border: 3px solid var(--amarelo-girassol); color: var(--azul-escuro); padding: 15px 20px; border-radius: 20px; font-weight: 600; font-size: 0.95em; width: 260px; min-height: 80px; text-align: center; margin-bottom: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; display: flex; align-items: center; justify-content: center; }
@@ -129,7 +85,6 @@
         <nav>
             <a href="#conteudo">Recursos e Guias</a>
             <a href="#ajuda">Guia Rápido</a>
-            <!-- AQUI ESTÁ O BOTÃO DA FAMÍLIA -->
             <a href="pais.html" class="btn-familia">Área da Família</a>
         </nav>
     </header>
@@ -146,6 +101,7 @@
         <div class="mascote-icone">🌻🧩</div>
     </div>
 
+    <!-- AGORA TODAS AS PEÇAS TÊM LINKS FUNCIONANDO! -->
     <section class="conteudo-real" id="conteudo">
         
         <div class="card-peca peca-1 escondido">
@@ -153,44 +109,42 @@
             <ul>
                 <li><strong>Conheça o espectro:</strong> Perfis de suporte e neurodiversidade.</li>
                 <li><strong>Gatilhos comuns:</strong> Som alto, luz forte, mudanças de rotina.</li>
-                <li><strong>Sinais de sobrecarga:</strong> Mãos no ouvido, balanço do corpo (stimming), agitação.</li>
             </ul>
+            <a href="recursos.html#compreensao" class="link-card" style="color: var(--azul-suave);">Ler Guia Completo ➔</a>
         </div>
 
         <div class="card-peca peca-2 escondido">
             <h3>🆘 Manejo de Crises</h3>
             <ul>
                 <li><strong>Desescalada verbal:</strong> Fale pouco, baixo e de forma literal.</li>
-                <li><strong>Refúgio Sensorial:</strong> Crie um cantinho com pufes e abafadores de ruído na sala.</li>
-                <li><strong>Pausa Programada:</strong> Permita que o aluno saia 5 min antes do sinal para evitar o barulho do pátio.</li>
+                <li><strong>Refúgio Sensorial:</strong> Crie espaços calmos e diminua demandas.</li>
             </ul>
+            <a href="recursos.html#manejo" class="link-card" style="color: var(--vermelho-sos);">Acessar Protocolos ➔</a>
         </div>
 
         <div class="card-peca peca-3 escondido">
             <h3>🎨 Adaptação Curricular</h3>
             <ul>
-                <li><strong>Caixa Tátil:</strong> Atividades de matemática com massinha ou blocos texturizados.</li>
-                <li><strong>Economia de Fichas:</strong> Recompensas visuais para tarefas concluídas.</li>
-                <li><strong>Rotina Visual:</strong> Lousa com imagens das 3 próximas tarefas.</li>
+                <li><strong>Caixa Tátil:</strong> Atividades de matemática com massinha ou blocos.</li>
+                <li><strong>Rotina Visual:</strong> Lousa com imagens das próximas tarefas.</li>
             </ul>
-            <a href="adaptacao.html" class="link-card" style="color: var(--amarelo-girassol);">Acessar Catálogo Completo ➔</a>
+            <a href="adaptacao.html" class="link-card" style="color: var(--amarelo-girassol);">Acessar Catálogo ➔</a>
         </div>
 
         <div class="card-peca peca-4 escondido">
             <h3>📊 Diário de Bordo</h3>
             <ul>
                 <li><strong>Mapeamento A-B-C:</strong> Anote o Antecedente, o Comportamento e a Consequência.</li>
-                <li><strong>Gráfico de Humor:</strong> Monitore se as manhãs são mais difíceis que as tardes.</li>
             </ul>
-            <a href="diario.html" class="link-card link-verde">Acessar Diário de Bordo ➔</a>
+            <a href="diario.html" class="link-card" style="color: var(--verde-calmo);">Abrir Diário ➔</a>
         </div>
 
         <div class="card-peca peca-5 escondido">
             <h3>🫂 Apoio ao Professor</h3>
             <ul>
-                <li><strong>Plantão de Dúvidas:</strong> Sessões semanais online com terapeutas ocupacionais.</li>
-                <li><strong>Prevenção de Burnout:</strong> Exercícios de respiração guiada entre aulas.</li>
+                <li><strong>Prevenção de Burnout:</strong> Técnicas de respiração e aterramento para controle de ansiedade.</li>
             </ul>
+            <a href="recursos.html#apoio" class="link-card" style="color: var(--roxo-apoio);">Acessar Apoio ➔</a>
         </div>
 
     </section>
@@ -200,73 +154,31 @@
         
         <details>
             <summary>O aluno entrou em crise de choro e grito. O que eu faço primeiro?</summary>
-            <div class="resposta">
-                Primeiro passo: <strong>garanta a segurança</strong>. Afaste objetos perigosos e peça para a turma manter distância. Diminua as luzes da sala se possível. Não tente abraçar ou tocar o aluno sem permissão (o toque pode piorar a sobrecarga). Abaixe-se na altura dele e diga em voz calma e baixa: "Estou aqui, você está seguro".
-            </div>
+            <div class="resposta">Primeiro passo: <strong>garanta a segurança</strong>. Afaste objetos perigosos e peça para a turma manter distância. Diminua as luzes. Não tente abraçar ou tocar o aluno sem permissão. Diga em voz calma e baixa: "Estou aqui, você está seguro".</div>
         </details>
 
         <details>
             <summary>O aluno tenta fugir da sala (Elopement) quando está frustrado.</summary>
-            <div class="resposta">
-                Não corra atrás gritando, pois isso pode virar um "jogo" ou aumentar o pânico. Acompanhe o aluno mantendo uma distância segura, bloqueando rotas para áreas perigosas (como a rua ou escadas). Acione a coordenação pelo rádio ou peça para outro aluno avisar a direção discretamente.
-            </div>
+            <div class="resposta">Não corra atrás gritando. Acompanhe o aluno mantendo distância segura, bloqueando rotas para áreas perigosas (rua, escadas). Acione a coordenação pelo rádio ou peça para outro aluno avisar a direção discretamente.</div>
         </details>
 
         <details>
             <summary>Como incluir um aluno que não se comunica verbalmente?</summary>
-            <div class="resposta">
-                A comunicação é muito mais que a fala! Use o método de Comunicação Alternativa (CAA). Tenha cartões de apontar (PECS) com figuras como "Banheiro", "Estou cansado", "Quero ajuda". Nas atividades em grupo, dê a ele papéis práticos, como entregar os papéis para os colegas, garantindo que ele interaja sem a pressão da fala.
-            </div>
+            <div class="resposta">Use Comunicação Alternativa (CAA). Tenha cartões de apontar (PECS) com figuras como "Banheiro", "Estou cansado", "Quero ajuda". Dê a ele papéis práticos nas atividades em grupo, como entregar os papéis para os colegas.</div>
         </details>
     </section>
 
     <a href="chat.html" class="btn-sos">🆘 Chat com Psicólogo</a>
 
     <script>
-        const dicas = [
-            "Olá, professor! Eu sou o Sunny. 🌻",
-            "Lá no topo tem a nova Área da Família! 🏡",
-            "Lá no final da página tem um Guia de Sobrevivência novo, já viu? 💡",
-            "Precisa de ajuda urgente? O botão vermelho liga direto pro psicólogo! 🆘",
-            "O comportamento é comunicação. O Diário te ajuda a entender isso! 📊"
-        ];
+        const dicas = ["Olá, professor! Eu sou o Sunny. 🌻", "Todas as nossas peças do quebra-cabeça estão funcionando agora! Clique nelas para explorar.", "Precisa de ajuda urgente? O botão vermelho liga direto pro psicólogo! 🆘"];
         let contador = 0; let indexLetra = 0; let escrevendo = false;
-
-        function digitar() {
-            const areaTexto = document.getElementById('texto-mascote');
-            const textoAtual = dicas[contador];
-            if (indexLetra < textoAtual.length) {
-                areaTexto.innerHTML += textoAtual.charAt(indexLetra);
-                indexLetra++;
-                setTimeout(digitar, 40);
-            } else {
-                escrevendo = false;
-                contador++; 
-                if (contador >= dicas.length) contador = 0;
-            }
-        }
-
-        function mudarDica() {
-            if (escrevendo) return;
-            escrevendo = true;
-            document.getElementById('texto-mascote').innerHTML = '';
-            indexLetra = 0;
-            digitar();
-        }
-
+        function digitar() { const areaTexto = document.getElementById('texto-mascote'); const textoAtual = dicas[contador]; if (indexLetra < textoAtual.length) { areaTexto.innerHTML += textoAtual.charAt(indexLetra); indexLetra++; setTimeout(digitar, 40); } else { escrevendo = false; contador++; if (contador >= dicas.length) contador = 0; } }
+        function mudarDica() { if (escrevendo) return; escrevendo = true; document.getElementById('texto-mascote').innerHTML = ''; indexLetra = 0; digitar(); }
         window.onload = function() { mudarDica(); };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('mostrar');
-                }
-            });
-        }, { threshold: 0.1 });
-
+        const observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('mostrar'); } }); }, { threshold: 0.1 });
         const elementosEscondidos = document.querySelectorAll('.escondido');
         elementosEscondidos.forEach((el) => observer.observe(el));
     </script>
-
 </body>
 </html>
