@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Recursos - Sunfloweredu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --azul-suave: #8EB8CB;
+            --azul-escuro: #2C3E50;
+            --vermelho-sos: #FF6B6B;
+            --roxo-apoio: #BA68C8;
+            --fundo-site: #F4F7F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--fundo-site); color: var(--azul-escuro); padding-top: 80px; scroll-behavior: smooth; }
+
+        header {
+            position: fixed; top: 0; width: 100%; background: white;
+            color: var(--azul-escuro); padding: 15px 50px; display: flex; align-items: center; gap: 20px;
+            z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .voltar-btn { color: var(--azul-escuro); text-decoration: none; font-size: 1.5em; font-weight: bold; }
+        
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        .secao-guia {
+            background: white; padding: 40px; border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); margin-bottom: 50px;
+        }
+
+        .secao-guia h2 { font-size: 2em; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .secao-guia h3 { font-size: 1.3em; margin-top: 30px; margin-bottom: 10px; color: #444; }
+        .secao-guia p { line-height: 1.8; color: #555; margin-bottom: 15px; font-size: 1.05em; }
+        
+        .destaque { background: #FDF6E3; padding: 15px; border-left: 4px solid var(--azul-suave); border-radius: 5px; font-weight: 600; margin: 20px 0; }
+
+        /* Cores específicas para cada seção */
+        #compreensao { border-top: 8px solid var(--azul-suave); }
+        #compreensao h2 { color: var(--azul-suave); }
+
+        #manejo { border-top: 8px solid var(--vermelho-sos); }
+        #manejo h2 { color: var(--vermelho-sos); }
+
+        #apoio { border-top: 8px solid var(--roxo-apoio); }
+        #apoio h2 { color: var(--roxo-apoio); }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="voltar-btn">← Voltar</a>
+        <h2>📚 Biblioteca de Recursos</h2>
+    </header>
+
+    <div class="container">
+        
+        <!-- CONTEÚDO DA PEÇA 1 -->
+        <section class="secao-guia" id="compreensao">
+            <h2>🧠 Compreensão do TEA</h2>
+            <p>O Transtorno do Espectro Autista (TEA) é uma condição do neurodesenvolvimento que afeta a forma como a pessoa percebe o mundo e interage com os outros. Não é uma doença a ser curada, mas um perfil neurológico diferente.</p>
+            
+            <h3>O que é o Processamento Sensorial?</h3>
+            <p>Muitos autistas têm hiper ou hipossensibilidade. Um barulho que parece normal para você (como o sinal do recreio ou o zumbido de uma lâmpada) pode causar dor física no aluno hiper-reativo. Já o aluno hipo-reativo pode buscar estímulos balançando o corpo ou esbarrando nas coisas.</p>
+            
+            <div class="destaque">Dica de Ouro: O comportamento é sempre uma forma de comunicação. Um aluno que foge da tarefa pode não ser "preguiçoso", mas estar sobrecarregado pelas demandas visuais ou verbais.</div>
+        </section>
+
+        <!-- CONTEÚDO DA PEÇA 2 -->
+        <section class="secao-guia" id="manejo">
+            <h2>🆘 Manejo de Crises (Meltdown e Shutdown)</h2>
+            <p>Existem dois tipos principais de crise quando o cérebro autista entra em colapso por sobrecarga:</p>
+            <ul>
+                <li><strong>Meltdown (Explosão):</strong> Choro, gritos, agressividade ou fuga. Acontece quando o limite sensorial ou emocional é ultrapassado.</li>
+                <li><strong>Shutdown (Implosão):</strong> O aluno "desliga". Fica mudo, imóvel, não responde a comandos e parece ausente.</li>
+            </ul>
+
+            <h3>Passo a Passo de Desescalada:</h3>
+            <p>1. <strong>Reduza as demandas:</strong> Pare de fazer perguntas e não exija contato visual.<br>
+               2. <strong>Modere o ambiente:</strong> Apague a luz forte, feche a porta para diminuir o barulho.<br>
+               3. <strong>Validação:</strong> Diga apenas frases afirmativas e curtas, como "Estou aqui. Você está seguro".<br>
+               4. <strong>Tempo de processamento:</strong> Dê tempo. O cérebro em crise leva muito mais tempo para processar informações.</p>
+        </section>
+
+        <!-- CONTEÚDO DA PEÇA 5 -->
+        <section class="secao-guia" id="apoio">
+            <h2>🫂 Apoio ao Professor (Prevenção de Burnout)</h2>
+            <p>Cuidar de alunos com necessidades específicas exige muita energia emocional e física. A "Fadiga por Compaixão" é real e você precisa colocar a sua máscara de oxigênio primeiro.</p>
+
+            <h3>Técnica de Aterramento (Grounding) 3-2-1</h3>
+            <p>Sente que a ansiedade bateu forte no meio da aula? Faça isso rapidamente na sua mesa:</p>
+            <ul>
+                <li>Olhe ao redor e nomeie mentalmente <strong>3 coisas</strong> que você pode ver (ex: apagador, caderno, janela).</li>
+                <li>Identifique <strong>2 coisas</strong> que você pode tocar e sinta a textura (ex: sua calça, a mesa de madeira).</li>
+                <li>Preste atenção em <strong>1 som</strong> distante (ex: o vento, o barulho do ventilador).</li>
+            </ul>
+            <div class="destaque">Isso "puxa" o seu cérebro do estado de alerta para o momento presente, baixando a frequência cardíaca.</div>
+        </section>
+
+    </div>
+
+</body>
+</html>
